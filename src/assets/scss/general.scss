@@ -1,0 +1,11 @@
+html {
+    .form-control {
+        font-size: 14px;
+        height: auto;
+        padding: 8px 12px;
+        border-radius: 0;
+        &:focus {
+            box-shadow: none;
+        }
+    }
+}
