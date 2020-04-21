@@ -9,7 +9,7 @@
         width: 100%;
         max-width: 375px;
         border: 2px solid #5fa2dd;
-        background: #fff;
+        background: var(--white-color);
         margin: 0 auto;
         position: relative;
         top: 50%;
@@ -31,7 +31,7 @@
             text-align: right;
             .btn {
                 background: #5FA2DD;
-                color: #ffffff;
+                color: var(--white-color);
                 font-size: 12px;
                 border-radius: 0;
                 border-color: #5897CE;
