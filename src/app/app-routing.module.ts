@@ -13,11 +13,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     component: BaseComponent,
     children: [
-			// {
-			// 	path: 'dashboard',
-			// 	loadChildren: () => import('app/views/pages/dashboard/dashboard.module').then(m => m.DashboardModule),
-      // },
-      { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
+			{
+				path: 'CaseList',
+				loadChildren: () => import('./modules/base/case-list/case-list.module').then(m => m.CaseListModule),
+      },
+      // { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
     ]
   },
 ];
