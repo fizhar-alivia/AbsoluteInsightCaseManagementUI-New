@@ -1,0 +1,43 @@
+#login_wrappar {
+    background: url('../../../../assets/media/login_background.jpg');
+    height: 100vh;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    form {
+        width: 100%;
+        max-width: 375px;
+        border: 2px solid #5fa2dd;
+        background: #fff;
+        margin: 0 auto;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        header {
+            padding: 10px;
+            background: #5FA2DD;
+        }
+        section {
+            padding: 20px;
+            label {
+                font-size: 15px;
+                color: #646c9a;
+            }
+        }
+        footer {
+            padding: 7px;
+            background: #ECECEC;
+            text-align: right;
+            .btn {
+                background: #5FA2DD;
+                color: #ffffff;
+                font-size: 12px;
+                border-radius: 0;
+                border-color: #5897CE;
+                padding: 10px 27px;
+
+            }
+        }
+    }
+}
