@@ -17,7 +17,7 @@ const routes: Routes = [
 				path: 'CaseList',
 				loadChildren: () => import('./modules/base/case-list/case-list.module').then(m => m.CaseListModule),
       },
-      // { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
+      { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
     ]
   },
 
@@ -31,7 +31,7 @@ const routes: Routes = [
       desc: 'Looks like you have entered a wrong url',
     },
   },
-  
+
   {path: '**', redirectTo: 'error/404', pathMatch: 'full'},
 ];
 
