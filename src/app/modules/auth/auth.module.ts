@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 //Modules
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 //Components inside auth module
 import { AuthComponent } from "../auth/auth.component";
@@ -41,7 +42,8 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+	RouterModule.forChild(routes),
+	FormsModule
   ],
 })
 

@@ -1,5 +1,5 @@
 <div id="login_wrappar">
-    <form>
+    <form #loginForm="ngForm">
         <header>
             <img src="../../../../assets/media/logo.alivia.png" alt="Alivia Analytics" />
         </header>
@@ -7,20 +7,20 @@
             <div class="form-group row">
                 <label for="loginEmail" class="col-sm-3 col-form-label">Username:</label>
                 <div class="col-sm-9">
-                    <input type="email" class="form-control" id="loginEmail" placeholder="Enter Your Email">
-                    <small class="text-danger d-none">This Field is required</small>
+                    <input type="email" class="form-control" id="loginEmail" required name="email" [(ngModel)]="emailInput" #email="ngModel" placeholder="Enter Your Email">
+                    <small *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">This Field is required</small>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="loginPassword" class="col-sm-3 col-form-label">Password:</label>
                 <div class="col-sm-9">
-                    <input type="email" class="form-control" id="loginPassword" placeholder="Enter Your Password">
-                    <small class="text-danger d-none">This Field is required</small>
+                    <input type="password" class="form-control" id="loginPassword" required name="password" [(ngModel)]="passwordInput" #password="ngModel" placeholder="Enter Your Password">
+                    <small *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">This Field is required</small>
                 </div>
             </div>
         </section>
         <footer>
-            <button class="btn">Login</button>
+            <button [disabled]="loginForm.invalid" (click)="login()" class="btn">Login</button>
         </footer>
     </form>
 </div>
