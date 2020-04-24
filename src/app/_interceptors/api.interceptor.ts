@@ -49,6 +49,10 @@ export class ApiInterceptor implements HttpInterceptor {
         this.router.navigate(['/auth/login']);
       }
     }
+    else if (400) {
+      localStorage.removeItem('tokens');
+      this.router.navigate(['/auth/login']);
+    }
     return throwError(err);
   }
 
