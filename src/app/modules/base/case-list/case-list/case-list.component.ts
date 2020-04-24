@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./case-list.component.scss']
 })
 export class CaseListComponent implements OnInit {
-
+  isClick = false;
+  collapseToggle(){
+    this.isClick = !this.isClick;
+  }
   constructor() { }
 
   ngOnInit(): void {

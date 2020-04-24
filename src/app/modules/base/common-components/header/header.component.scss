@@ -60,7 +60,7 @@ header#main {
 	padding: 15px;
 	box-shadow: rgb(136, 136,136) 0px 4px 6px;
 	transition: margin-left 0.5s;
-	&.active {
+	&.expanded {
 		margin-left: 0;
 		transition: margin-left 0.5s;
 	}

@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-nav.component.scss']
 })
 export class SideNavComponent implements OnInit {
-
+  isClick = false;
+  collapseToggle(){
+    this.isClick = !this.isClick;
+  }
   constructor() { }
 
   ngOnInit(): void {
