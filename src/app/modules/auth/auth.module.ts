@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthComponent } from "../auth/auth.component";
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { RedirectionComponent } from './redirection/redirection.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,10 @@ const routes: Routes = [
 			{
 				path: 'forgot-password',
 				component: ForgotPasswordComponent,
+			},
+			{
+				path: 'redirecting',
+				component: RedirectionComponent,
 			}
 		]
 	}
@@ -38,7 +43,8 @@ const routes: Routes = [
   declarations: [
     AuthComponent,
     LoginComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    RedirectionComponent
   ],
   imports: [
     CommonModule,
