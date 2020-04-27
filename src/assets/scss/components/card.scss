@@ -1,0 +1,16 @@
+.card {
+    .card {
+        &-header {
+            background: var(--transparent-color);
+            .title {
+                color: #646ca6;
+                font-size: 24px;
+            }
+            .btn {
+                + .btn {
+                    margin-left: 10px;
+                }
+            }
+        }
+    } 
+}

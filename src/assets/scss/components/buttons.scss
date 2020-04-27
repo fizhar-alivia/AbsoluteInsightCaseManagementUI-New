@@ -1,0 +1,10 @@
+html {
+    .btn {
+        &-primary {
+            background: #5D78FF;
+            &:hover {
+                background: darken(#5D78FF, 5%);
+            }
+        }
+    }
+}

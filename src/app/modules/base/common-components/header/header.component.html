@@ -1,1 +1,45 @@
-<p>header works!</p>
+<header id="main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-auto">
+                <div class="menuBtn" (click)="collapseToggle()">
+                    <svg height="22" viewBox="0 0 1792 1792" width="22" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M512 1248v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm0-512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm640 512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm-640-1024v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm640 512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm640 512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm-640-1024v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm640 512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm0-512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="col">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-transparent mb-0">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Complaint List</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-auto">
+                <div class="dropdown">
+                    <div class="userProfile" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="greetings">Hi,</span>
+                        <span class="user">Tariq</span>
+                        <img src="assets/media/user.jpg" width="30" alt="User" />
+                    </div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li class="dropdown-item"><a href="javascript:void(0)" class="btn">Sign Out</a></li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="app-menu-container" [ngClass]="{'expanded' : isClick}">
+    <h4>Applications</h4>
+    <div class="row">
+        <div class="col-md-6">
+            <a href="javascript:void(0)"><img class="img-fluid" src="../../../../../assets/media/favicon/absolute-insight-favicon.jpg"><span>Absolute Insight</span></a>
+        </div>
+        <div class="col-md-6">
+            <a class="disabled" href="javascript:void(0)"><img class="img-fluid" src="../../../../assets/media/favicon/cmt-insight-favicon.jpg"><span>Case Insight</span></a>
+        </div>
+    </div>
+</div>
