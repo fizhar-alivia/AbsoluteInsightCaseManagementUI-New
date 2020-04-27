@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './modules/auth/_guards/auth.guard';
 import { BaseComponent } from './modules/base/base.component';
-import { PageNotFoundComponent } from "./modules/base/common-components/error-pages/page-not-found/page-not-found.component";
+import { ErrorPageComponent } from "../app/common-components/error-page/error-page.component";
 
 const routes: Routes = [
 
@@ -23,7 +23,7 @@ const routes: Routes = [
 
   {
     path: 'error/404',
-    component: PageNotFoundComponent,
+    component: ErrorPageComponent,
     data: {
       type: 'error-v6',
       code: 404,

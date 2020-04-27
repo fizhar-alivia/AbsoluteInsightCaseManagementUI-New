@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { BaseComponent } from './modules/base/base.component';
 import { SideNavComponent } from './modules/base/common-components/side-nav/side-nav.component';
 import { HeaderComponent } from './modules/base/common-components/header/header.component';
-import { PageNotFoundComponent } from './modules/base/common-components/error-pages/page-not-found/page-not-found.component';
+import { ErrorPageComponent } from './common-components/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { PageNotFoundComponent } from './modules/base/common-components/error-pa
     BaseComponent,
     SideNavComponent,
     HeaderComponent,
-    PageNotFoundComponent
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
