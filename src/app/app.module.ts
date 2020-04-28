@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
-
+import { DataTablesModule } from 'angular-datatables';
 
 import { ApiInterceptor } from "../app/_interceptors/api.interceptor";
 
@@ -20,7 +20,7 @@ import { ErrorPageComponent } from './common-components/error-page/error-page.co
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-
+    DataTablesModule.forRoot()
   ],
   providers: [
     {
