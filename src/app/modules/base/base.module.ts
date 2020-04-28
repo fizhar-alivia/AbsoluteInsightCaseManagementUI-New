@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { DataTablesModule } from 'angular-datatables';
+
 import { BaseComponent } from './base.component';
 import { SideNavComponent } from './common-components/side-nav/side-nav.component';
 import { HeaderComponent } from './common-components/header/header.component';
@@ -30,8 +30,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
-    DataTablesModule.forRoot()
+    RouterModule.forChild(routes)
   ],
   exports:[
     RouterModule
