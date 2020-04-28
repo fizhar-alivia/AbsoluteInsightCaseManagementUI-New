@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./case-list.component.scss']
 })
 export class CaseListComponent implements OnInit {
+  dtOptions: DataTables.Settings = {};
   isClick = false;
   collapseToggle(){
     this.isClick = !this.isClick;
@@ -13,6 +14,9 @@ export class CaseListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers'
+    };
   }
 
 }
