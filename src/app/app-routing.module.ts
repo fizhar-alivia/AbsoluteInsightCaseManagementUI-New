@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './modules/auth/_guards/auth.guard';
-import { BaseComponent } from './modules/base/base.component';
 import { ErrorPageComponent } from "../app/common-components/error-page/error-page.component";
 
 const routes: Routes = [
@@ -11,14 +10,7 @@ const routes: Routes = [
   {
     path: '',
     canActivate: [AuthGuard],
-    component: BaseComponent,
-    children: [
-			{
-				path: 'CaseList',
-				loadChildren: () => import('./modules/base/case-list/case-list.module').then(m => m.CaseListModule),
-      },
-      { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
-    ]
+    loadChildren: () => import('./modules/base/base.module').then(m => m.BaseModule),
   },
 
   {

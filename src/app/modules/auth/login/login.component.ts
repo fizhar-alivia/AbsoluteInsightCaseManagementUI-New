@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Md5 } from "md5-typescript";
 import { AuthService } from 'src/app/_services/auth.service';
-import * as CryptoJS from 'crypto-js';
 import { Router } from "@angular/router";
 
 declare const principalDataURL: any;

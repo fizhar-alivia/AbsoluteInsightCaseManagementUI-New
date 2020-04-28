@@ -4,27 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 
+
 import { ApiInterceptor } from "../app/_interceptors/api.interceptor";
 
 import { AppComponent } from './app.component';
-import { BaseComponent } from './modules/base/base.component';
-import { SideNavComponent } from './modules/base/common-components/side-nav/side-nav.component';
-import { HeaderComponent } from './modules/base/common-components/header/header.component';
 import { ErrorPageComponent } from './common-components/error-page/error-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BaseComponent,
-    SideNavComponent,
-    HeaderComponent,
     ErrorPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
   providers: [
     {
