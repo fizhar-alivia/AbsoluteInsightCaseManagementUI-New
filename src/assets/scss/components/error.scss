@@ -1,0 +1,48 @@
+.bg-page {
+    background: #fff url('assets/media/bg-page.jpg');
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 10%;
+    h1 {
+        font-size: 55px;
+        color: #595d6e;
+    }
+    h2 {
+        color: #595d6e;
+        font-weight: 400;
+    }
+}
+
+@-webkit-keyframes opacity {
+	0% { opacity: 1; }
+	100% { opacity: 0; }
+}
+@-moz-keyframes opacity {
+	0% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+#loading {
+    span {
+        -webkit-animation-name: opacity;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-iteration-count: infinite;
+        
+        -moz-animation-name: opacity;
+        -moz-animation-duration: 1s;
+        -moz-animation-iteration-count: infinite;
+
+        &:nth-child(2) {
+            -webkit-animation-delay: 100ms;
+            -moz-animation-delay: 100ms;
+        }
+        &:nth-child(3) {
+            -webkit-animation-delay: 300ms;
+            -moz-animation-delay: 300ms;
+        }
+    }
+}
