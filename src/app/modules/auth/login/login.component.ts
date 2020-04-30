@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/_services/auth.service';
 import { Router } from "@angular/router";
 
 declare const principalDataURL: any;
+declare const userSecurityInfoURL: any;
 
 @Component({
   selector: 'app-login',
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit {
         if (data['access_token']) {
           localStorage.setItem('tokens', JSON.stringify(data));
           this.getPrincipalData();
+          this.getUserSecurityInfo();
           this.router.navigate(['/CaseList']);
         }
       },
@@ -50,6 +52,14 @@ export class LoginComponent implements OnInit {
 
   getPrincipalData() {
     this.authService.getRequest(principalDataURL).subscribe(
+      data => {
+        console.log(data);
+      }
+    )
+  }
+
+  getUserSecurityInfo() {
+    this.authService.getRequest(userSecurityInfoURL).subscribe(
       data => {
         console.log(data);        
       }
