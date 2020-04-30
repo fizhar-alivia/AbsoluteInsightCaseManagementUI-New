@@ -21,11 +21,11 @@
                 <div class="dropdown">
                     <div class="userProfile" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="greetings">Hi,</span>
-                        <span class="user">Tariq</span>
+                        <span class="user">{{userName}}</span>
                         <img src="assets/media/user.jpg" width="30" alt="User" />
                     </div>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li class="dropdown-item"><a href="javascript:void(0)" class="btn">Sign Out</a></li>
+                        <li class="dropdown-item"><a href="javascript:;" (click)="signout()" class="btn">Sign Out</a></li>
                     </div>
                 </div>
             </div>

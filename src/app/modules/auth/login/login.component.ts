@@ -53,7 +53,14 @@ export class LoginComponent implements OnInit {
   getPrincipalData() {
     this.authService.getRequest(principalDataURL).subscribe(
       data => {
-        console.log(data);
+        let loggedUser: any = data;
+        loggedUser = loggedUser.userAuthentication.details.principal.user;
+				let user: any = {};
+				user.firstName = loggedUser.firstName;
+				user.lastName = loggedUser.lastName;
+        user.userId = loggedUser.userId;
+
+        localStorage.setItem('userInfo', JSON.stringify(user));
       }
     )
   }
@@ -61,7 +68,10 @@ export class LoginComponent implements OnInit {
   getUserSecurityInfo() {
     this.authService.getRequest(userSecurityInfoURL).subscribe(
       data => {
-        console.log(data);        
+        console.log(data);
+        let securityInfo: any = {};
+        securityInfo = data;
+        localStorage.setItem('userSecurityInfo', JSON.stringify(data));        
       }
     )
   }

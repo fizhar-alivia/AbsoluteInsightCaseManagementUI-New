@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserInfoService } from "../../../../_services/user-info.service";
 
 @Component({
   selector: 'app-side-nav',
@@ -6,13 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-nav.component.scss']
 })
 export class SideNavComponent implements OnInit {
+
   isClick = false;
-  collapseToggle(){
-    this.isClick = !this.isClick;
-  }
-  constructor() { }
+  userSideMenu: any;
+
+  constructor(
+    private userInfoService: UserInfoService
+  ) { }
 
   ngOnInit(): void {
+
+  }
+
+  collapseToggle(){
+    this.isClick = !this.isClick;
   }
 
 }
