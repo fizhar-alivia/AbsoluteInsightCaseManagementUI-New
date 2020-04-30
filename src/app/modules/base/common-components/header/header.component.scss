@@ -1,6 +1,11 @@
 header#main {
     background-color: var(--white-color);
     border-bottom: 1px solid #eff0f6;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    right: 0;
+    left: 0;
     .menuBtn {
         padding: 20px 24px 18px 9px;
         cursor: pointer;
