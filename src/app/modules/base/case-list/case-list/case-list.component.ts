@@ -15,7 +15,9 @@ export class CaseListComponent implements OnInit {
 
   ngOnInit(): void {
     this.dtOptions = {
-      pagingType: 'full_numbers'
+      paging: false,
+      info : false,
+      responsive: true
     };
   }
 
