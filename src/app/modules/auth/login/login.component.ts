@@ -68,7 +68,6 @@ export class LoginComponent implements OnInit {
   getUserSecurityInfo() {
     this.authService.getRequest(userSecurityInfoURL).subscribe(
       data => {
-        console.log(data);
         let securityInfo: any = {};
         securityInfo = data;
         localStorage.setItem('userSecurityInfo', JSON.stringify(data));        

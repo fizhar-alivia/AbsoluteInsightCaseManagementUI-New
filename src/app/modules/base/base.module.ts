@@ -5,7 +5,7 @@ import { DataTablesModule } from 'angular-datatables';
 import { BaseComponent } from './base.component';
 import { SideNavComponent } from './common-components/side-nav/side-nav.component';
 import { HeaderComponent } from './common-components/header/header.component';
-
+import { AuthGuard } from '../auth/_guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -13,7 +13,8 @@ const routes: Routes = [
     component: BaseComponent,
     children: [
 			{
-				path: 'CaseList',
+        path: 'CaseList',
+        canActivate: [AuthGuard],
 				loadChildren: () => import('./case-list/case-list.module').then(m => m.CaseListModule),
       },
       { path: '', redirectTo: '/auth/login', pathMatch: 'full' },

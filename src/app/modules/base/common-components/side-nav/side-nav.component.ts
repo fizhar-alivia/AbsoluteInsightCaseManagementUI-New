@@ -16,7 +16,7 @@ export class SideNavComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    this.userSideMenu = this.userInfoService.userSecurityInfo.ai_workflow_access_left_menu;
   }
 
   collapseToggle(){

@@ -15,3 +15,4 @@ var oAuthRefreshTokenURL = server + AI_WEB_PORT + '/ai-web/oauth/token?grant_typ
 
 var principalDataURL = server + AI_CM_PORT + '/case/principal';
 var userSecurityInfoURL = server + AI_CM_PORT + '/case/getusersecurityinfo';
+var getCaseViewListURL = server + AI_CM_PORT + '/case/getcaseviewlist?';
