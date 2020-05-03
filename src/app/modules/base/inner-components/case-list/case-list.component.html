@@ -5,15 +5,14 @@
                 <div class="title col">Complaint List</div>
                 <div class="col-auto">
                     <ng-container *ngFor="let button of buttonsList">
-                        <a href="#" class="btn btn-primary">Button Text Here</a>
+                        <a href="#" class="btn btn-primary">{{button.ai_workflow_access_name}}</a>
                         <!-- <a href="#" class="btn border">Cancel</a> -->
                     </ng-container>
                 </div>
             </div>
         </div>
         <div class="card-body">
-            <table datatable [dtOptions]="dtOptions" class="table">
-            </table>
+            <app-generic-grid [cols]="cols" [data]="caseList" [response]="response"></app-generic-grid>
         </div>
     </div>
 </main>
