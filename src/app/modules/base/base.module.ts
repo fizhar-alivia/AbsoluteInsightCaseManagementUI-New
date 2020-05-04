@@ -2,14 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { DataTablesModule } from 'angular-datatables';
-import { AuthGuard } from '../auth/_guards/auth.guard';
 
 import { BaseComponent } from './base.component';
 import { SideNavComponent } from './common-components/side-nav/side-nav.component';
 import { HeaderComponent } from './common-components/header/header.component';
+import { AuthGuard } from '../auth/_guards/auth.guard';
 import { CaseListComponent } from './inner-components/case-list/case-list.component';
 import { GenericGridComponent } from "./common-components/grids/generic-grid/generic-grid.component";
-import { CaseViewComponent } from './inner-components/case-view/case-view.component';
 
 const routes: Routes = [
   {
@@ -23,7 +22,7 @@ const routes: Routes = [
       },
       {
         path: 'caseView',
-        component: CaseViewComponent
+        loadChildren: () => import('./inner-components/case-view/case-view.module').then(m => m.CaseViewModule)
       },
       { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
     ]
