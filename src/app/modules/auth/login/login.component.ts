@@ -17,12 +17,10 @@ export class LoginComponent implements OnInit {
   passwordInput: any;
 
   encryptionKey = 'abcd';
-
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) { }
-
   ngOnInit(): void {
     if (localStorage.getItem('tokens')) {
       this.router.navigate(['/CaseList']);
@@ -39,7 +37,7 @@ export class LoginComponent implements OnInit {
         if (data['access_token']) {
           localStorage.setItem('tokens', JSON.stringify(data));
           this.getPrincipalData();
-          this.getUserSecurityInfo();
+          //this.getUserSecurityInfo();
           this.router.navigate(['/CaseList']);
         }
       },

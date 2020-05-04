@@ -1,7 +1,7 @@
 <div id="login_wrappar">
     <form #loginForm="ngForm">
         <header>
-            <img src="../../../../assets/media/logo.alivia.png" alt="Alivia Analytics" />
+            <img src="assets/media/logo.alivia.png" alt="Alivia Analytics" />
         </header>
         <section>
             <div class="form-group row">
@@ -18,9 +18,12 @@
                     <small *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">This Field is required</small>
                 </div>
             </div>
+            <div role="alert" class="alert alert-danger">
+                <div class="alert-text">The login detail is incorrect</div>
+            </div>
         </section>
         <footer>
-            <button [disabled]="loginForm.invalid" (click)="login()" class="btn">Login</button>
+            <button [disabled]="loginForm.invalid" (click)="login()" class="btn" type="ball-spin-clockwise" size="small">Login</button>
         </footer>
     </form>
 </div>
