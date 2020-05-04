@@ -18,7 +18,7 @@
                     <small *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">This Field is required</small>
                 </div>
             </div>
-            <div role="alert" class="alert alert-danger">
+            <div *ngIf="wrong_credentials" role="alert" class="alert alert-danger">
                 <div class="alert-text">The login detail is incorrect</div>
             </div>
         </section>

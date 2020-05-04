@@ -15,12 +15,13 @@ export class LoginComponent implements OnInit {
 
   emailInput: any;
   passwordInput: any;
+  wrong_credentials: boolean = false;
 
-  encryptionKey = 'abcd';
   constructor(
     private authService: AuthService,
     private router: Router,
   ) { }
+
   ngOnInit(): void {
     if (localStorage.getItem('tokens')) {
       this.router.navigate(['/CaseList']);
@@ -37,12 +38,14 @@ export class LoginComponent implements OnInit {
         if (data['access_token']) {
           localStorage.setItem('tokens', JSON.stringify(data));
           this.getPrincipalData();
-          //this.getUserSecurityInfo();
+          this.getUserSecurityInfo();
           this.router.navigate(['/CaseList']);
         }
       },
       error => {
-
+        if (error.status === 401) {
+          this.wrong_credentials = true;
+        }        
       }
     )
 
