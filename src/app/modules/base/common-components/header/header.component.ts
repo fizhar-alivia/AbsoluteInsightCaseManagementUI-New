@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { UserInfoService } from "../../../../_services/user-info.service";
+import { SharedService } from "../../../../_services/shared.service";
 
 @Component({
   selector: 'app-header',
@@ -8,15 +9,14 @@ import { UserInfoService } from "../../../../_services/user-info.service";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isClick = false;
-  collapseToggle(){
-    this.isClick = !this.isClick;
-  }
+  
+  isOpen = false;
   userName: any;
 
   constructor(
     private router: Router,
-    private userInfoService: UserInfoService
+    private userInfoService: UserInfoService,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
@@ -26,6 +26,11 @@ export class HeaderComponent implements OnInit {
   signout(){
     localStorage.removeItem('tokens');
     this.router.navigate(['auth/login']);
+  }
+
+  collapseToggle(){
+    this.isOpen = !this.isOpen;
+    this.sharedService.toggleHeaderMenu(this.isOpen);
   }
 
 }

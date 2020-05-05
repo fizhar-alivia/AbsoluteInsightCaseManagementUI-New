@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { SharedModule } from "./shared.module";
 
+import { AuthGuard } from '../auth/_guards/auth.guard';
+
 import { BaseComponent } from './base.component';
 import { SideNavComponent } from './common-components/side-nav/side-nav.component';
 import { HeaderComponent } from './common-components/header/header.component';
-import { AuthGuard } from '../auth/_guards/auth.guard';
 import { CaseListComponent } from './inner-components/case-list/case-list.component';
 
 const routes: Routes = [

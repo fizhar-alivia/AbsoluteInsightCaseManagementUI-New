@@ -1,4 +1,4 @@
-<main id="main" [ngClass]="{'collapsed' : isClick}">
+<main id="main" [ngClass]="{'collapsed' : isSideMenuOpen || isHeaderMenuOpen}">
     <div class="card h-100">
         <div class="card-header">
             <div class="row">
@@ -6,7 +6,6 @@
                 <div class="col-auto">
                     <ng-container *ngFor="let button of buttonsList">
                         <a href="#" class="btn btn-primary">{{button.ai_workflow_access_name}}</a>
-                        <!-- <a href="#" class="btn border">Cancel</a> -->
                     </ng-container>
                 </div>
             </div>

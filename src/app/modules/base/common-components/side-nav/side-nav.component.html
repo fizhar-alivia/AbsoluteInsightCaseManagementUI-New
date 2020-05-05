@@ -1,4 +1,4 @@
-<aside id="main" class="border expanded" [ngClass]="{'expanded' : isClick}">
+<aside id="main" class="border expanded" [ngClass]="{'expanded' : isOpen}">
     <div id="asidemenu" (click)="collapseToggle()"></div>
     <ul class="list-unstyled">
         <li *ngFor="let menu of userSideMenu">
