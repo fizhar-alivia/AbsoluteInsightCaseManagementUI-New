@@ -16,9 +16,13 @@ const routes: Routes = [
     component: BaseComponent,
     canActivate: [AuthGuard],
     children: [
-			{
+      {
         path: 'CaseList',
-				component: CaseListComponent
+        component: CaseListComponent
+      },
+      {
+        path: 'caseView',
+        loadChildren: () => import('./inner-components/case-view/case-view.module').then(m => m.CaseViewModule)
       },
       { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
     ]
@@ -39,7 +43,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     DataTablesModule.forRoot()
   ],
-  exports:[
+  exports: [
     RouterModule
   ]
 })
