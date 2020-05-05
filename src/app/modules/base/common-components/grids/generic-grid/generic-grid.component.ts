@@ -26,8 +26,8 @@ export class GenericGridComponent implements OnInit, OnChanges, AfterViewInit {
   ngAfterViewInit() {
     setTimeout(() => {
       $("#dtable tbody tr").bind("contextmenu", function (e) {
-        var top = e.pageY - 10;
-        var left = e.pageX - 90;
+        var top = e.pageY - 350;
+        var left = e.pageX - 50;
         $("#box").css({ 
           top: top,
           left: left
