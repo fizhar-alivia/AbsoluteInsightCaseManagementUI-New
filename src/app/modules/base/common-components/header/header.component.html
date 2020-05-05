@@ -12,8 +12,9 @@
             <div class="col">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Complaint List</li>
+                        <li *ngFor="let bCrumb of breadCrumbs" class="breadcrumb-item">
+                            <a [routerLink]="bCrumb.path" href="javascript:;">{{bCrumb.title}}</a>
+                        </li>
                     </ol>
                 </nav>
             </div>

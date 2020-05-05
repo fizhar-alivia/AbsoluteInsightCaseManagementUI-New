@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { SharedService } from "../../../../_services/shared.service";
 @Component({
   selector: 'app-case-view',
   templateUrl: './case-view.component.html',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CaseViewComponent implements OnInit {
 
-  constructor() { }
+  breadCrumbs = [
+    {'path': '/CaseList', 'title': 'Complaint List'},
+    {'path': '/caseView', 'title': 'Complaint View'}
+  ]
+
+  constructor(
+    private sharedService: SharedService
+  ) { }
 
   ngOnInit(): void {
+    this.sharedService.updateBreadCrumbs(this.breadCrumbs);
   }
 
 }
