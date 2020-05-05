@@ -35,7 +35,7 @@ export class GenericGridComponent implements OnInit, OnChanges, AfterViewInit {
         $('#box').show();
         e.preventDefault();
       });
-    }, 1000);
+    }, 3000);
 
     $(document).bind("click", function (e) {
       $('#box').hide();
