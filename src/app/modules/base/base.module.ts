@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { DataTablesModule } from 'angular-datatables';
+import { SharedModule } from "./shared.module";
 
 import { BaseComponent } from './base.component';
 import { SideNavComponent } from './common-components/side-nav/side-nav.component';
 import { HeaderComponent } from './common-components/header/header.component';
 import { AuthGuard } from '../auth/_guards/auth.guard';
 import { CaseListComponent } from './inner-components/case-list/case-list.component';
-import { GenericGridComponent } from "./common-components/grids/generic-grid/generic-grid.component";
 
 const routes: Routes = [
   {
@@ -35,13 +34,12 @@ const routes: Routes = [
     BaseComponent,
     SideNavComponent,
     HeaderComponent,
-    CaseListComponent,
-    GenericGridComponent
+    CaseListComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    DataTablesModule.forRoot()
+    SharedModule
   ],
   exports: [
     RouterModule
