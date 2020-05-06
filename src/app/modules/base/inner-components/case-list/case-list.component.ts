@@ -18,6 +18,7 @@ export class CaseListComponent implements OnInit {
   caseList: any = [];
   cols: any = [];
   buttonsList: any;
+  actionsList: any;
   breadCrumbs = [{'path': '/CaseList', 'title': 'Complaint List'}]
   constructor(
     private userInfoService: UserInfoService,
@@ -27,8 +28,9 @@ export class CaseListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCaseList();
-    this.sharedService.updateBreadCrumbs(this.breadCrumbs);
-    this.buttonsList = this.userInfoService.userSecurityInfo.ai_workflow_button_access;
+    this.updateBCrumbs();
+    this.getButtons();
+    this.getRightClickActions();
     this.sharedService.sideMenuOpened.subscribe(value => this.isSideMenuOpen = value);
     this.sharedService.headerMenuOpened.subscribe(value => this.isHeaderMenuOpen = value);
   }
@@ -42,5 +44,17 @@ export class CaseListComponent implements OnInit {
         this.response = true;
       }
     )
+  }
+
+  updateBCrumbs(){
+    this.sharedService.updateBreadCrumbs(this.breadCrumbs);
+  }
+
+  getButtons(){
+    this.buttonsList = this.userInfoService.userSecurityInfo.ai_workflow_button_access;
+  }
+
+  getRightClickActions(){
+    this.actionsList = this.userInfoService.userSecurityInfo.ai_workflow_access_right_menu;
   }
 }

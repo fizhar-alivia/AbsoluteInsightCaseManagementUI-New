@@ -4,8 +4,6 @@
 </div>
 <div class="dropdown">
     <ul class="dropdown-menu" id="box">
-        <a href="#" class="dropdown-item">Analyst</a>
-        <a href="#" class="dropdown-item">Triage Manager</a>
-        <a href="#" class="dropdown-item">Auditor</a>
+        <a *ngFor="let action of RcActions" href="javascript:;" class="dropdown-item">{{action.ai_workflow_access_name}}</a>
     </ul>
 </div>

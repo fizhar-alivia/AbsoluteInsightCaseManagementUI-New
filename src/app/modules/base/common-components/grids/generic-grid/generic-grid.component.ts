@@ -11,6 +11,7 @@ export class GenericGridComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() data: any;
   @Input() cols: any;
   @Input() response: any;
+  @Input() RcActions: any;
 
   constructor() { }
 
