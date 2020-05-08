@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Md5 } from "md5-typescript";
 import { AuthService } from 'src/app/_services/auth.service';
+import { UserInfoService } from 'src/app/_services/user-info.service';
 import { Router } from "@angular/router";
 
 declare const principalDataURL: any;
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private userInfoService: UserInfoService,
     private router: Router,
   ) { }
 
@@ -39,7 +41,6 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('tokens', JSON.stringify(data));
           this.getPrincipalData();
           this.getUserSecurityInfo();
-          this.router.navigate(['/CaseList']);
         }
       },
       error => {
@@ -48,7 +49,6 @@ export class LoginComponent implements OnInit {
         }        
       }
     )
-
   }
 
   getPrincipalData() {
@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
 				user.firstName = loggedUser.firstName;
 				user.lastName = loggedUser.lastName;
         user.userId = loggedUser.userId;
-
+        this.userInfoService.userDetail = user;
         localStorage.setItem('userInfo', JSON.stringify(user));
       }
     )
@@ -69,9 +69,9 @@ export class LoginComponent implements OnInit {
   getUserSecurityInfo() {
     this.authService.getRequest(userSecurityInfoURL).subscribe(
       data => {
-        let securityInfo: any = {};
-        securityInfo = data;
-        localStorage.setItem('userSecurityInfo', JSON.stringify(data));        
+        this.userInfoService.userSecurityInfo = data;
+        localStorage.setItem('userSecurityInfo', JSON.stringify(data)); 
+        this.router.navigate(['/CaseList']);       
       }
     )
   }

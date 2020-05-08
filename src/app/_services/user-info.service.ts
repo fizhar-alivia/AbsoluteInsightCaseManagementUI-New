@@ -5,8 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class UserInfoService {
 
-  constructor() { }
+  userDetail: any = {};
+  userSecurityInfo: any = {};
 
-  userDetail: any = JSON.parse(localStorage.getItem('userInfo'));
-  userSecurityInfo: any = JSON.parse(localStorage.getItem('userSecurityInfo'));
+  constructor() { 
+    this.userDetail = JSON.parse(localStorage.getItem('userInfo'));
+    this.userSecurityInfo = JSON.parse(localStorage.getItem('userSecurityInfo'));
+  }
 }

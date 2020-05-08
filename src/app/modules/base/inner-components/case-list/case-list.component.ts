@@ -55,6 +55,8 @@ export class CaseListComponent implements OnInit {
   }
 
   getRightClickActions(){
+    console.log('getting actions');
+    
     this.actionsList = this.userInfoService.userSecurityInfo.ai_workflow_access_right_menu;
   }
 }
