@@ -17,11 +17,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path: 'CaseList',
+        path: 'List',
         component: CaseListComponent
       },
       {
-        path: 'caseView',
+        path: 'View',
         loadChildren: () => import('./inner-components/case-view/case-view.module').then(m => m.CaseViewModule)
       },
       { path: '', redirectTo: '/auth/login', pathMatch: 'full' },

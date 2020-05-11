@@ -18,7 +18,7 @@ export class CaseListComponent implements OnInit {
   caseList: any = [];
   cols: any = [];
   buttonsList: any;
-  breadCrumbs = [{'path': '/CaseList', 'title': 'Complaint List'}]
+  breadCrumbs = [{'path': '/List', 'title': 'Home'}]
   constructor(
     private userInfoService: UserInfoService,
     private apiService: ApiService,
