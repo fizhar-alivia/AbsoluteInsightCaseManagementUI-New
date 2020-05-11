@@ -8,8 +8,8 @@ import { SharedService } from "../../../../_services/shared.service";
 export class CaseViewComponent implements OnInit {
 
   breadCrumbs = [
-    {'path': '/CaseList', 'title': 'Complaint List'},
-    {'path': '/caseView', 'title': 'Complaint View'}
+    {'path': '/List', 'title': 'Home'},
+    {'path': '/View', 'title': 'View'}
   ]
 
   constructor(
