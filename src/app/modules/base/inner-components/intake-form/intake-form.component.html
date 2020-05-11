@@ -1,1 +1,35 @@
-<p>intake-form works!</p>
+<main id="main" [ngClass]="{'collapsed' : isSideMenuOpen || isHeaderMenuOpen}">
+    <div class="card h-100">
+        <div class="card-header">
+            <div class="row">
+                <div class="title col">Intake Form</div>
+                <div class="col-auto">
+                    <a href="javascript:;" class="btn btn-primary">Save</a>
+                    <a href="javascript:;" class="btn btn-secondary">Back</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="form-row">
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="First name">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="Last name">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="Last name">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="Last name">
+                  </div>
+                </div>
+              </form>
+            <app-primary-subject></app-primary-subject>
+            <app-reporter-info></app-reporter-info>
+            <app-associated-subjects></app-associated-subjects>
+            <app-intake-attachments></app-intake-attachments>
+        </div>
+    </div>
+</main>

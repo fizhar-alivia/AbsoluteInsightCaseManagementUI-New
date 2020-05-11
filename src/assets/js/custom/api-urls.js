@@ -7,7 +7,7 @@
 
 var server = 'http://localhost';
 var AI_WEB_PORT = ':8080';
-var AI_CM_PORT = ':8088'
+var AI_CM_PORT = ':8088';
 
 
 var oAuthGetTokenURL = server + AI_WEB_PORT + '/ai-web/oauth/token?grant_type=password';
