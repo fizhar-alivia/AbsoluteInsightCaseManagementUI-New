@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.getItem('tokens')) {
-      this.router.navigate(['/CaseList']);
+      this.router.navigate(['/List']);
     }
   }
 
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('tokens', JSON.stringify(data));
           this.getPrincipalData();
           this.getUserSecurityInfo();
-          this.router.navigate(['/CaseList']);
+          this.router.navigate(['/List']);
         }
       },
       error => {

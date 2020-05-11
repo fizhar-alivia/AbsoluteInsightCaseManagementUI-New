@@ -8,4 +8,8 @@ html {
             box-shadow: none;
         }
     }
+    .dropdown-item:focus, .dropdown-item:hover {
+        color: var(--white-color);
+        background: var(--primary-color);
+    }
 }

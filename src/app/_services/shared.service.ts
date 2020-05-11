@@ -12,6 +12,9 @@ export class SharedService {
   private isHeaderMenuOpened = new BehaviorSubject(false);
   headerMenuOpened = this.isHeaderMenuOpened.asObservable();
 
+  private breadCrumbs = new BehaviorSubject([]);
+  breadCrumbsArray = this.breadCrumbs.asObservable();
+
   constructor() { }
 
   toggleSideMenu(value: boolean) {
@@ -20,6 +23,10 @@ export class SharedService {
 
   toggleHeaderMenu(value: boolean) {
     this.isHeaderMenuOpened.next(value);
+  }
+
+  updateBreadCrumbs(value: any) {
+    this.breadCrumbs.next(value);
   }
 
 }

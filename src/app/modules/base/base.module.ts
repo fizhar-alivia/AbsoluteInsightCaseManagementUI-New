@@ -17,12 +17,16 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path: 'CaseList',
+        path: 'List',
         component: CaseListComponent
       },
       {
-        path: 'caseView',
+        path: 'View',
         loadChildren: () => import('./inner-components/case-view/case-view.module').then(m => m.CaseViewModule)
+      },
+      {
+        path: 'intakeForm',
+        loadChildren: () => import('./inner-components/intake-form/intake-form.module').then(m => m.IntakeFormModule)
       },
       { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
     ]

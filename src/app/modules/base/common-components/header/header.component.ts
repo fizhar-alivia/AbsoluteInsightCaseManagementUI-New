@@ -12,15 +12,16 @@ export class HeaderComponent implements OnInit {
   
   isOpen = false;
   userName: any;
-
+  breadCrumbs: any = []
   constructor(
     private router: Router,
     private userInfoService: UserInfoService,
     private sharedService: SharedService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
     this.userName = this.userInfoService.userDetail.firstName +' '+ this.userInfoService.userDetail.lastName;
+    this.sharedService.breadCrumbsArray.subscribe(value => this.breadCrumbs = value);    
   }
 
   signout(){
