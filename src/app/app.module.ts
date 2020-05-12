@@ -9,6 +9,7 @@ import { ApiInterceptor } from "../app/_interceptors/api.interceptor";
 
 import { AppComponent } from './app.component';
 import { ErrorPageComponent } from './common-components/error-page/error-page.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ErrorPageComponent } from './common-components/error-page/error-page.co
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    NgbModule,
 
   ],
   providers: [

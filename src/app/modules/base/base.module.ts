@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { SharedModule } from "./shared.module";
 
 import { AuthGuard } from '../auth/_guards/auth.guard';
 
 import { BaseComponent } from './base.component';
 import { SideNavComponent } from './common-components/side-nav/side-nav.component';
 import { HeaderComponent } from './common-components/header/header.component';
-import { CaseListComponent } from './inner-components/case-list/case-list.component';
 
 const routes: Routes = [
   {
@@ -18,7 +16,7 @@ const routes: Routes = [
     children: [
       {
         path: 'List',
-        component: CaseListComponent
+        loadChildren: () => import('./inner-components/case-list/case-list.module').then(m => m.CaseListModule)
       },
       {
         path: 'View',
@@ -38,13 +36,11 @@ const routes: Routes = [
   declarations: [
     BaseComponent,
     SideNavComponent,
-    HeaderComponent,
-    CaseListComponent
+    HeaderComponent
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
-    SharedModule
+    RouterModule.forChild(routes)
   ],
   exports: [
     RouterModule

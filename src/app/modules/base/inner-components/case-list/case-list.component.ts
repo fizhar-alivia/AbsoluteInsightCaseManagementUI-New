@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserInfoService } from "../../../../_services/user-info.service";
 import { ApiService } from "../../../../_services/api.service";
 import { SharedService } from "../../../../_services/shared.service";
+import { TaRecommendationModalComponent } from "./modals/ta-recommendation-modal/ta-recommendation-modal.component";
 
 declare var getCaseViewListURL: any;
 
@@ -55,8 +56,6 @@ export class CaseListComponent implements OnInit {
   }
 
   getRightClickActions(){
-    console.log('getting actions');
-    
     this.actionsList = this.userInfoService.userSecurityInfo.ai_workflow_access_right_menu;
   }
 }
