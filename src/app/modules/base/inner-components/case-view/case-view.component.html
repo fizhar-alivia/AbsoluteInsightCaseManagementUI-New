@@ -1,180 +1,178 @@
 <main id="main">
-    <div class="card">
-        <div class="card-header">
-            <div class="row align-items-center">
-                <h5 class="mb-0 col-auto mr-auto">Case View</h5>
-                <div class="col-auto">
-                    <a href="#" class="btn btn-primary px-3">Back</a>
-                </div>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-12 col-sm-auto align-items-lg-center d-flex d-sm-block d-lg-flex justify-content-center">
-                    <img src="assets/media/user-avatar.png" appimgfallback="" id="imgUser" width="120" height="120" alt="User" class="img-fluid rounded-circle border my-sm-4 mb-4 shadow" />
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <label>Case ID</label>
-                            <input type="text" class="form-control" [ngModel]="headerData.ai_workflow_id" tooltip="Case Id Field" disabled />
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <label>Allegation Type :</label>
-                            <select class="form-control" [(ngModel)]="headerData.ai_workflow_allegation_type">
-                                <option value="Fraud">Fraud</option>
-                                <option value="Abuse">Abuse</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <label>Primary Allegation *:</label>
-                            <select class="form-control" [(ngModel)]="headerData.ai_workflow_primary_allegation" tooltip="Primary Allegation of Suspect">
-                                <option value="Billing Errors">Billing Errors</option>
-                                <option value="UnBundling">UnBundling</option>
-                                <option value="Kick Backs">Kick Backs</option>
-                                <option value="Provider Excluded">Provider Excluded</option>
-                                <option value="Services Not Rendered">Services Not Rendered</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <label>Secondary Allegation :</label>
-                            <select class="form-control" [(ngModel)]="headerData.ai_workflow_secondry_allegation" tooltip="Secondary Allegation">
-                                <option value="Billing Errors">Billing Errors</option>
-                                <option value="UnBundling">UnBundling</option>
-                                <option value="Kick Backs">Kick Backs</option>
-                                <option value="Provider Excluded">Provider Excluded</option>
-                                <option value="Services Not Rendered">Services Not Rendered</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <label>Case Priority *:</label>
-                            <select class="form-control" [(ngModel)]="headerData.ai_workflow_priority">
-                                <option value="High">High</option>
-                                <option value="Medium">Medium</option>
-                                <option value="Low">Low</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <label>Previous Case IDs:</label>
-                            <select class="form-control" [(ngModel)]="headerData.ai_workflow_prevoius_Ids" multiple>
-                                <option *ngFor="let id of previousCaseIds" [value]="id.value">{{ id.label }}</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <label>Case Type *:</label>
-                            <select class="form-control" [(ngModel)]="headerData.ai_workflow_type">
-                                <option value="Complaint">Complaint</option>
-                                <option value="Case">Case</option>
-                                <option value="Incident">Incident</option>
-                                <option value="Audit">Audit</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <label>Case Source:</label>
-                            <select class="form-control" [(ngModel)]="headerData.ai_workflow_source">
-                                <option value="Hotline">Hotline</option>
-                                <option value="Email">Email</option>
-                                <option value="Analytics">Analytics</option>
-                                <option value="News Media">News Media</option>
-                                <option value="Outside Agency">Outside Agency</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <label>Case Status *:</label>
-                            <select class="form-control" [(ngModel)]="headerData.ai_workflow_status" disabled="true">
-                                <option value="New">New</option>
-                                <option value="Active">Active</option>
-                                <option value="Closed">Closed</option>
-                                <option value="Reject">Rejected</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <div *ngIf="userRole == 'TriageAnalyst' ">
-                                <label>Case Stage:</label>
-                                <select class="form-control" [(ngModel)]="headerData.ai_workflow_stage" (ngModelChange)="stageChanged($event)" disabled="true">
-                                    <option *ngFor="let option of stageOptions" [value]="option.value">{{ option.label }}</option>
-                                </select>
-                            </div>
-                            <div *ngIf="userRole != 'TriageAnalyst' ">
-                                <label>Case Stage:</label>
-                                <select class="form-control" [(ngModel)]="headerData.ai_workflow_stage" (ngModelChange)="stageChanged($event)">
-                                    <option *ngFor="let option of stageOptions" [value]="option.value">{{ option.label }}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <label>Assignee:</label>
-                            <select class="form-control" [(ngModel)]="headerData.ai_workflow_user_assignmnet">
-                                <option *ngFor="let user of users" [value]="user.userId">{{ getUserName(user.userId) }}</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <label>Notes:</label>
-                            <textarea class="form-control" cdkTextareaAutosize  [(ngModel)]="headerData.ai_workflow_detail_notes"
-							  cdkAutosizeMinRows="1"
-							  cdkAutosizeMaxRows="5"></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <div class="row align-items-center">
-                        <h5 class="mb-0 col-auto mr-auto">Case Header</h5>
-                        <div class="col-auto">
-                            <button type="button" class="btn btn-secondary" tooltip="Add Involved Party" [options]="{placement: 'top'}"><i class="fas fa-chevron-down"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <label>Medicaid Health Plan Identifier :</label>
-                            <input type="text" class="form-control" [(ngModel)]="headerData.ai_workflow_medical_health_plan_identifier" tooltip="MPI Field">
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <label>New/Previously Reported :</label>
-                            <select class="form-control" [(ngModel)]="headerData.ai_workflow_reported_quarter">
-                                <option value="Reported - Q1FY2018-2019">Reported - Q1FY2018-2019</option>
-                                <option value="Reported - Q2FY2018-2019">Reported - Q2FY2018-2019</option>
-                                <option value="Reported - Q3FY2018-2019">Reported - Q3FY2018-2019</option>
-                                <option value="Reported - Q4FY2018-2019">Reported - Q4FY2018-2019</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <label>MPI Complaint ID :</label>
-					        <input type="text" class="form-control" [(ngModel)]="headerData.ai_workflow_mpi_complaint_id" tooltip="MPI Complaint ID">
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <label>Date Detected :</label>
-                            <input type="date" class="form-control" [(ngModel)]="headerData.ai_workflow_date_detected" tooltip="Date Detected">
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <label>Date First Reported to MPI :</label>
-                            <input type="date" class="form-control" [(ngModel)]="headerData.ai_workflow_date_first_report_to_mpi" tooltip="Date First Reported to MPI">
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 form-group">
-                            <label>Detection Tool :</label>
-                            <select class="form-control" [(ngModel)]="headerData.ai_workflow_detection_tool" tooltip="Detection Tool">
-                                <option value="AHCA - source of referral">AHCA - source of referral</option>
-                                <option value="Data Analysis">Data Analysis</option>
-                                <option value="Employee Identification of red flags or fraud indicators">Employee Identification of red flags or fraud indicators</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <app-primary-subject></app-primary-subject>
-            <app-involved-parties></app-involved-parties>
-            <app-brief-summary></app-brief-summary>
-            <app-attachments></app-attachments>
-            <app-analytics></app-analytics>
-            <app-case-notes></app-case-notes>
-            <app-correspondences></app-correspondences>
-            <app-financials></app-financials>
-            <app-case-claims></app-case-claims>
-            <app-reporting></app-reporting>
-        </div>
-    </div>
+  <div class="card">
+      <div class="card-header">
+          <div class="row align-items-center">
+              <h5 class="mb-0 col-auto mr-auto">Case View</h5>
+              <div class="col-auto">
+                  <a href="#" class="btn btn-primary px-3">Back</a>
+              </div>
+          </div>
+      </div>
+      <div class="card-body">
+          <div class="row">
+              <div class="col-12 col-sm-auto align-items-lg-center d-flex d-sm-block d-lg-flex justify-content-center">
+                  <img src="assets/media/user-avatar.png" appimgfallback="" id="imgUser" width="120" height="120" alt="User" class="img-fluid rounded-circle border my-sm-4 mb-4 shadow" />
+              </div>
+              <div class="col">
+                  <div class="row">
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <label>Case ID</label>
+                          <input type="text" class="form-control" disabled />
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <label>Allegation Type :</label>
+                          <select class="form-control" >
+                              <option value="Fraud">Fraud</option>
+                              <option value="Abuse">Abuse</option>
+                          </select>
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <label>Primary Allegation *:</label>
+                          <select class="form-control">
+                              <option value="Billing Errors">Billing Errors</option>
+                              <option value="UnBundling">UnBundling</option>
+                              <option value="Kick Backs">Kick Backs</option>
+                              <option value="Provider Excluded">Provider Excluded</option>
+                              <option value="Services Not Rendered">Services Not Rendered</option>
+                          </select>
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <label>Secondary Allegation :</label>
+                          <select class="form-control">
+                              <option value="Billing Errors">Billing Errors</option>
+                              <option value="UnBundling">UnBundling</option>
+                              <option value="Kick Backs">Kick Backs</option>
+                              <option value="Provider Excluded">Provider Excluded</option>
+                              <option value="Services Not Rendered">Services Not Rendered</option>
+                          </select>
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <label>Case Priority *:</label>
+                          <select class="form-control" >
+                              <option value="High">High</option>
+                              <option value="Medium">Medium</option>
+                              <option value="Low">Low</option>
+                          </select>
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <label>Previous Case IDs:</label>
+                          <select class="form-control"  multiple>
+                              <option value="">id 1</option>
+                          </select>
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <label>Case Type *:</label>
+                          <select class="form-control" >
+                              <option value="Complaint">Complaint</option>
+                              <option value="Case">Case</option>
+                              <option value="Incident">Incident</option>
+                              <option value="Audit">Audit</option>
+                          </select>
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <label>Case Source:</label>
+                          <select class="form-control" >
+                              <option value="Hotline">Hotline</option>
+                              <option value="Email">Email</option>
+                              <option value="Analytics">Analytics</option>
+                              <option value="News Media">News Media</option>
+                              <option value="Outside Agency">Outside Agency</option>
+                              <option value="Other">Other</option>
+                          </select>
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <label>Case Status *:</label>
+                          <select class="form-control"disabled="true">
+                              <option value="New">New</option>
+                              <option value="Active">Active</option>
+                              <option value="Closed">Closed</option>
+                              <option value="Reject">Rejected</option>
+                          </select>
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <div >
+                              <label>Case Stage:</label>
+                              <select class="form-control"  disabled="true">
+                                  <option value="">stage</option>
+                              </select>
+                          </div>
+                          <div>
+                              <label>Case Stage:</label>
+                              <select class="form-control">
+                                  <option value="">stage</option>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <label>Assignee:</label>
+                          <select class="form-control">
+                            <option value="assignee1">Assignee 1</option>
+                          </select>
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <label>Notes:</label>
+                          <textarea class="form-control" ></textarea>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="card">
+              <div class="card-header">
+                  <div class="row align-items-center">
+                      <h5 class="mb-0 col-auto mr-auto">Case Header</h5>
+                      <div class="col-auto">
+                          <button type="button" class="btn btn-secondary"><i class="fas fa-chevron-down"></i></button>
+                      </div>
+                  </div>
+              </div>
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <label>Medicaid Health Plan Identifier :</label>
+                          <input type="text" class="form-control">
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <label>New/Previously Reported :</label>
+                          <select class="form-control" >
+                              <option value="Reported - Q1FY2018-2019">Reported - Q1FY2018-2019</option>
+                              <option value="Reported - Q2FY2018-2019">Reported - Q2FY2018-2019</option>
+                              <option value="Reported - Q3FY2018-2019">Reported - Q3FY2018-2019</option>
+                              <option value="Reported - Q4FY2018-2019">Reported - Q4FY2018-2019</option>
+                          </select>
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <label>MPI Complaint ID :</label>
+                          <input type="text" class="form-control">
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <label>Date Detected :</label>
+                          <input type="date" class="form-control">
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <label>Date First Reported to MPI :</label>
+                          <input type="date" class="form-control">
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3 form-group">
+                          <label>Detection Tool :</label>
+                          <select class="form-control">
+                              <option value="AHCA - source of referral">AHCA - source of referral</option>
+                              <option value="Data Analysis">Data Analysis</option>
+                              <option value="Employee Identification of red flags or fraud indicators">Employee Identification of red flags or fraud indicators</option>
+                          </select>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <app-primary-subject></app-primary-subject>
+          <app-involved-parties></app-involved-parties>
+          <app-brief-summary></app-brief-summary>
+          <app-attachments></app-attachments>
+          <app-analytics></app-analytics>
+          <app-case-notes></app-case-notes>
+          <app-correspondences></app-correspondences>
+          <app-financials></app-financials>
+          <app-case-claims></app-case-claims>
+          <app-reporting></app-reporting>
+      </div>
+  </div>
 </main>
